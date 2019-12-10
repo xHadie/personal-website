@@ -1,0 +1,5 @@
+---
+deployment:
+ tasks:
+ - export DEPLOYPATH=/home/hassysun/public_html/
+ - /bin/cp -R publish $DEPLOYPATH
