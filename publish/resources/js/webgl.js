@@ -182,11 +182,11 @@ function initBuffers(gl) {
     gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
     const textureCoordinates = [
-        // Front
+        // Right
         0.0,  0.0,
         0.0,  0.25,
-        0.0,  0.25,
         0.25,  0.25,
+        0.25,  0.0,
         // Back
         0, 0,
         0, 1,
