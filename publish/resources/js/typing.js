@@ -1,4 +1,4 @@
-const words = [" 'Coffee.'", " 'Winter.'"," 'Science.'"," 'Playing Guitar.'"," 'Sleeping.'"];
+const words = [" 'Playing Guitar.'"," 'Coffee.'", " 'Winter.'"," 'Science.'"," 'Sleeping.'"];
 let i = 0;
 let timer;
 

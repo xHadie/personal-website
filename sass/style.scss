@@ -1,14 +1,12 @@
 
 
-$skew-degree-intro: -20deg;
+@import '../sass_component/variables';
+@import '../sass_component/introduction';
+@import '../sass_component/skills';
+@import '../sass_component/portfolio';
 
-$black: #2F2E33;
-$gray: #D5D6D2;
-$white: #FFFFFF;
-$primary: #3A5199;
 
-$terminal-bg-color: #404040;
-$terminal-text-color: #8dc38d;
+
 
 body{
     background-color: pink;
@@ -16,94 +14,7 @@ body{
 
 }
 
-.sec-introduction{
-    background-color: $black;
-    text-align: center;
 
-    .intro-skewed{
-        height: 5000px;
-        background-color: $gray;
-        transform: skewY($skew-degree-intro);
-        transform-origin:top left;
-        position: absolute;
-        width: 100%;
-        margin-top: -4200px;
-    }
-    .area-content{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-areas:
-                "intro-name  intro-pic"
-                "intro-short intro-pic"
-                "intro-hire intro-like";
-        grid-gap: 50px;
-        grid-template-rows: 30% 30% 40%;
-
-        .intro-name{
-            grid-area: intro-name;
-        }
-
-        .intro-pic{
-            grid-area: intro-pic;
-            align-self: center;
-        }
-
-        .intro-short{
-            grid-area: intro-short;
-        }
-
-        .intro-hire{
-            grid-area: intro-hire;
-        }
-
-        .intro-like{
-            grid-area: intro-like;
-        }
-
-    }
-    h1{
-        color:$black;
-        font-size: 32pt;
-    }
-    h2{
-        color:$black;
-    }
-
-    img{
-        border-style: outset;
-        border-width: thick;
-        border-color: $terminal-text-color;
-        width: 400px;
-        height: auto;
-    }
-
-}
-
-
-.blink {
-    animation: blink 0.5s infinite;
-}
-@keyframes blink{
-    to { opacity: .0; }
-}
-
-.typing-block{
-    display: inline-block;
-    background-color: $terminal-bg-color;
-    border-style: inset;
-    border-width: medium;
-    border-color: $primary;
-    width: 80%;
-}
-
-.header-sub-title {
-    color: $terminal-text-color;
-    font-family: "Courier";
-    font-size: 20px;
-    padding: 0.1em;
-}
 
 .left{
     float: left;
@@ -113,56 +24,7 @@ body{
     color: $primary;
 }
 
-.sec-skills{
-    background-color: $primary;
 
-    .skill-grid{
-        display: grid;
-        grid-template-areas:
-                "skill-top-left . . . skill-top-right"
-                ". skill-center skill-center skill-center ."
-                ". skill-center skill-center skill-center ."
-                ". skill-center skill-center skill-center ."
-                ". skill-center skill-center skill-center ."
-                "skill-bot-left . . . skill-bot-right";
-        width: 100%;
-        height: 100%;
-
-        .skill-top-left{
-            grid-area: skill-top-left;
-        }
-
-
-        .skill-top-right{
-            grid-area: skill-top-right;
-        }
-
-
-        .skill-bot-left{
-            grid-area: skill-bot-left;
-        }
-
-
-        .skill-bot-right{
-            grid-area: skill-bot-right;
-        }
-
-        .skill-center{
-            grid-area: skill-center;
-        }
-
-        .skill-box{
-            padding: 50px;
-            margin: 50px;
-            background-color: $black;
-        }
-
-        .center-skill-box{
-            background-color: $primary;
-        }
-    }
-
-}
 
 .sec-portfolio{
     background-color: $black;

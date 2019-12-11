@@ -1,0 +1,28 @@
+
+$skew-degree-intro: -20deg;
+
+$black: #2F2E33;
+$gray: #D5D6D2;
+$white: #FFFFFF;
+$primary: #3A5199;
+
+$terminal-bg-color: #404040;
+$terminal-text-color: #8dc38d;
+
+
+
+
+@mixin device($point) {
+  @if $point == phone {
+    @media (max-width: 599px) { @content; }
+  }
+  @else if $point == tablet-portrait {
+    @media (min-width: 600px) { @content; }
+  }
+  @else if $point == tablet-landscape {
+    @media (min-width: 900px) { @content; }
+  }
+  @else if $point == desktop {
+    @media (min-width: 1200px) { @content; }
+  }
+}
