@@ -1,10 +1,38 @@
-var cubeRotation = 0.0;
 
 //
 // Start here
 //
+
+function createSolidTexture(gl, r, g, b, a) {
+    var data = new Uint8Array([r, g, b, a]);
+    var texture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, data);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+    return texture;
+}
+
+var mousePos = {x: 0, y:0}
+var canvasSize = {width: 0, height:0}
+
+function updateMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    canvasSize.width = rect.width;
+    canvasSize.height = rect.height;
+    mousePos.x = evt.clientX - rect.left;
+    mousePos.y = evt.clientY - rect.top;
+}
+
+
+
 function initWebGl() {
     const canvas = document.querySelector('#glCanvas');
+    canvas.addEventListener('mousemove', function(evt) {
+        updateMousePos(canvas, evt)
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+    }, false);
+
     const gl = canvas.getContext('webgl');
 
     // If we don't have a GL context, give up now
@@ -68,8 +96,8 @@ function initWebGl() {
     // objects we'll be drawing.
     const buffers = initBuffers(gl);
 
-    const texture = loadTexture(gl, 'resources/image/texture.png');
-
+    const texture = loadTexture(gl, 'resources/image/face_texture.png');
+    // const texture = createSolidTexture(gl, 1,1,1,1)
     var then = 0;
 
     // Draw the scene repeatedly
@@ -79,8 +107,8 @@ function initWebGl() {
         then = now;
 
         drawScene(gl, programInfo, buffers, texture, deltaTime);
-
         requestAnimationFrame(render);
+
     }
     requestAnimationFrame(render);
 }
@@ -154,36 +182,48 @@ function initBuffers(gl) {
     gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
     const textureCoordinates = [
-        // Front
-        0.0,  0.0,
-        1.0,  0.0,
-        1.0,  1.0,
-        0.0,  1.0,
-        // Back
-        0.0,  0.0,
-        1.0,  0.0,
-        1.0,  1.0,
-        0.0,  1.0,
-        // Top
-        0.0,  0.0,
-        1.0,  0.0,
-        1.0,  1.0,
-        0.0,  1.0,
-        // Bottom
-        0.0,  0.0,
-        1.0,  0.0,
-        1.0,  1.0,
-        0.0,  1.0,
-        // Right
-        0.0,  0.0,
-        1.0,  0.0,
-        1.0,  1.0,
-        0.0,  1.0,
-        // Left
-        0.0,  0.0,
-        1.0,  0.0,
-        1.0,  1.0,
-        0.0,  1.0,
+        // select the top left image
+        0   , 0  ,
+        0   , 0.5,
+        0.25, 0  ,
+        0   , 0.5,
+        0.25, 0.5,
+        0.25, 0  ,
+        // select the top middle image
+        0.25, 0  ,
+        0.5 , 0  ,
+        0.25, 0.5,
+        0.25, 0.5,
+        0.5 , 0  ,
+        0.5 , 0.5,
+        // select to top right image
+        0.5 , 0  ,
+        0.5 , 0.5,
+        0.75, 0  ,
+        0.5 , 0.5,
+        0.75, 0.5,
+        0.75, 0  ,
+        // select the bottom left image
+        0   , 0.5,
+        0.25, 0.5,
+        0   , 1  ,
+        0   , 1  ,
+        0.25, 0.5,
+        0.25, 1  ,
+        // select the bottom middle image
+        0.25, 0.5,
+        0.25, 1  ,
+        0.5 , 0.5,
+        0.25, 1  ,
+        0.5 , 1  ,
+        0.5 , 0.5,
+        // select the bottom right image
+        0.5 , 0.5,
+        0.75, 0.5,
+        0.5 , 1  ,
+        0.5 , 1  ,
+        0.75, 0.5,
+        0.75, 1  ,
     ];
 
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
@@ -284,7 +324,6 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     gl.depthFunc(gl.LEQUAL);            // Near things obscure far things
 
     // Clear the canvas before we start drawing on it.
-
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     // Create a perspective matrix, a special matrix that is
@@ -314,18 +353,22 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
 
     // Now move the drawing position a bit to where we want to
     // start drawing the square.
-
     mat4.translate(modelViewMatrix,     // destination matrix
         modelViewMatrix,     // matrix to translate
         [-0.0, 0.0, -6.0]);  // amount to translate
+
+    let rootationValueX = Math.PI/4 + mousePos.x/(canvasSize.width/Math.PI*2);
+    let rootationValueY = Math.PI/4 + mousePos.y/(canvasSize.height/Math.PI*2);
+
     mat4.rotate(modelViewMatrix,  // destination matrix
         modelViewMatrix,  // matrix to rotate
-        cubeRotation,     // amount to rotate in radians
-        [0, 0, 1]);       // axis to rotate around (Z)
+        rootationValueX,     // amount to rotate in radians
+        [0, 1, 0]);       // axis to rotate around (Y)
     mat4.rotate(modelViewMatrix,  // destination matrix
         modelViewMatrix,  // matrix to rotate
-        cubeRotation * .7,// amount to rotate in radians
-        [0, 1, 0]);       // axis to rotate around (X)
+        rootationValueY,// amount to rotate in radians
+        [0, 0, 1]);       // axis to rotate around (X)
+
 
     // Tell WebGL how to pull out the positions from the position
     // buffer into the vertexPosition attribute
@@ -404,8 +447,6 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     }
 
     // Update the rotation for the next draw
-
-    cubeRotation += deltaTime;
 }
 
 //
