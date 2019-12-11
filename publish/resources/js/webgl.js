@@ -68,7 +68,7 @@ function initWebGl() {
     // objects we'll be drawing.
     const buffers = initBuffers(gl);
 
-    const texture = loadTexture(gl, 'resources/image/cubetexture.png');
+    const texture = loadTexture(gl, 'resources/image/texture.png');
 
     var then = 0;
 
