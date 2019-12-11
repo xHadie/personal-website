@@ -182,48 +182,36 @@ function initBuffers(gl) {
     gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
     const textureCoordinates = [
-        // select the top left image
-        0   , 0  ,
-        0   , 0.5,
-        0.25, 0  ,
-        0   , 0.5,
-        0.25, 0.5,
-        0.25, 0  ,
-        // select the top middle image
-        0.25, 0  ,
-        0.5 , 0  ,
-        0.25, 0.5,
-        0.25, 0.5,
-        0.5 , 0  ,
-        0.5 , 0.5,
-        // select to top right image
-        0.5 , 0  ,
-        0.5 , 0.5,
-        0.75, 0  ,
-        0.5 , 0.5,
-        0.75, 0.5,
-        0.75, 0  ,
-        // select the bottom left image
-        0   , 0.5,
-        0.25, 0.5,
-        0   , 1  ,
-        0   , 1  ,
-        0.25, 0.5,
-        0.25, 1  ,
-        // select the bottom middle image
-        0.25, 0.5,
-        0.25, 1  ,
-        0.5 , 0.5,
-        0.25, 1  ,
-        0.5 , 1  ,
-        0.5 , 0.5,
-        // select the bottom right image
-        0.5 , 0.5,
-        0.75, 0.5,
-        0.5 , 1  ,
-        0.5 , 1  ,
-        0.75, 0.5,
-        0.75, 1  ,
+        // Front
+        0.0,  0.0,
+        0.0,  0.25,
+        0.0,  0.25,
+        0.25,  0.25,
+        // Back
+        0.25,  0.25,
+        1.0,  0.25,
+        1.0,  1.0,
+        0.25,  1.0,
+        // Top
+        0.25,  0.25,
+        0.5,  0.25,
+        0.5,  0.5,
+        0.25,  0.5,
+        // Bottom
+        0.5,  0.5,
+        0.75,  0.5,
+        0.75,  0.75,
+        0.5,  0.75,
+        // Right
+        0.25,  0.25,
+        0.5,  0.25,
+        0.5,  0.5,
+        0.25,  0.5,
+        // Left
+        0,  0.25,
+        0.25,  0.25,
+        1.0,  1.0,
+        0.25,  0.25,
     ];
 
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
