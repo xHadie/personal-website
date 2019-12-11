@@ -11,7 +11,7 @@ $terminal-bg-color: #404040;
 $terminal-text-color: #8dc38d;
 
 body{
-    background-color: $black;
+    background-color: pink;
     font-family: "Varela", Times, serif;
 
 }
@@ -26,13 +26,41 @@ body{
         transform: skewY($skew-degree-intro);
         transform-origin:top left;
         position: absolute;
-        width: 200%;
+        width: 100%;
         margin-top: -4200px;
     }
     .area-content{
         position: absolute;
-        padding: 50px;
         width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-areas:
+                "intro-name  intro-pic"
+                "intro-short intro-pic"
+                "intro-hire intro-like";
+        grid-gap: 50px;
+        grid-template-rows: 30% 30% 40%;
+
+        .intro-name{
+            grid-area: intro-name;
+        }
+
+        .intro-pic{
+            grid-area: intro-pic;
+            align-self: center;
+        }
+
+        .intro-short{
+            grid-area: intro-short;
+        }
+
+        .intro-hire{
+            grid-area: intro-hire;
+        }
+
+        .intro-like{
+            grid-area: intro-like;
+        }
 
     }
     h1{
@@ -41,20 +69,42 @@ body{
     }
     h2{
         color:$black;
-
     }
 
     img{
-        float: right;
-        margin-top: 10%;
         border-style: outset;
         border-width: thick;
         border-color: $terminal-text-color;
-        margin-right: 200px;
-
+        width: 400px;
+        height: auto;
     }
 
 }
+
+
+.blink {
+    animation: blink 0.5s infinite;
+}
+@keyframes blink{
+    to { opacity: .0; }
+}
+
+.typing-block{
+    display: inline-block;
+    background-color: $terminal-bg-color;
+    border-style: inset;
+    border-width: medium;
+    border-color: $primary;
+    width: 80%;
+}
+
+.header-sub-title {
+    color: $terminal-text-color;
+    font-family: "Courier";
+    font-size: 20px;
+    padding: 0.1em;
+}
+
 .left{
     float: left;
 }
@@ -127,26 +177,3 @@ ul{
 
 
 
-.blink {
-    animation: blink 0.5s infinite;
-}
-@keyframes blink{
-    to { opacity: .0; }
-}
-
-.typing-block{
-    display: flex;
-    background-color: $terminal-bg-color;
-    border-style: inset;
-    border-width: medium;
-    border-color: $primary;
-    padding: 10px;
-    margin: 10px;
-}
-
-.header-sub-title {
-    color: $terminal-text-color;
-    font-family: "Courier";
-    font-size: 20px;
-    padding: 0.1em;
-}
