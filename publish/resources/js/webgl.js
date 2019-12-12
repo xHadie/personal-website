@@ -184,10 +184,11 @@ function initBuffers(gl) {
     const textureCoordinates = [
 
         // RIGHT
-        0.5,  0.5,
         0.5,  1.0,
         0.25,  1.0,
         0.25,  0.5,
+        0.5,  0.5,
+
         // LEFT
         0.25,  0.5,
         0.25,  1.0,
