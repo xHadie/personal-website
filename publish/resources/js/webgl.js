@@ -15,22 +15,19 @@ function createSolidTexture(gl, r, g, b, a) {
 
 var mousePos = {x: 0, y:0}
 var canvasSize = {width: 0, height:0}
-
-function updateMousePos(canvas, evt) {
-    var rect = canvas.getBoundingClientRect();
-    canvasSize.width = rect.width;
-    canvasSize.height = rect.height;
-    mousePos.x = evt.clientX - rect.left;
-    mousePos.y = evt.clientY - rect.top;
-}
-
+var distance = -9.0
 
 
 function initWebGl() {
     const canvas = document.querySelector('#glCanvas');
-    canvas.addEventListener('mousemove', function(evt) {
-        updateMousePos(canvas, evt)
-        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+    const skillGrid = document.querySelector('#skillGrid');
+    skillGrid.addEventListener('mousemove', function(evt) {
+        var rect = skillGrid.getBoundingClientRect();
+        canvasSize.width = rect.width;
+        canvasSize.height = rect.height;
+        mousePos.x = evt.clientX - rect.left;
+        mousePos.y = evt.clientY - rect.top;
+        console.log(rect)
     }, false);
 
     const gl = canvas.getContext('webgl');
@@ -312,7 +309,7 @@ function isPowerOf2(value) {
 // Draw the scene.
 //
 function drawScene(gl, programInfo, buffers, texture, deltaTime) {
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
+    gl.clearColor(58.0/255.0, 81.0/255.0, 153.0/255.0, 1.0);  // Clear to black, fully opaque
     gl.clearDepth(1.0);                 // Clear everything
     gl.enable(gl.DEPTH_TEST);           // Enable depth testing
     gl.depthFunc(gl.LEQUAL);            // Near things obscure far things
@@ -349,7 +346,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     // start drawing the square.
     mat4.translate(modelViewMatrix,     // destination matrix
         modelViewMatrix,     // matrix to translate
-        [-0.0, 0.0, -6.0]);  // amount to translate
+        [-0.0, 0.0, distance]);  // amount to translate
 
     let rootationValueX = Math.PI/4 + mousePos.x/(canvasSize.width/Math.PI*2);
     let rootationValueY = Math.PI/4 + mousePos.y/(canvasSize.height/Math.PI*2);
