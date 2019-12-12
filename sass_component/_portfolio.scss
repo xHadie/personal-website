@@ -1,0 +1,43 @@
+
+
+.sec-portfolio{
+
+  .icon-area{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    width: 100%;
+    height: 100%;
+    .logo{
+      align-self: center;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include device(phone){
+        width: 100px;
+
+      }
+
+      @include device(tablet-portrait){
+        width: 150px;
+
+      }
+
+      @include device(tablet-landscape){
+        width: 150px;
+
+      }
+
+      @include device(desktop){
+        width: 200px;
+
+      }
+    }
+
+
+
+
+
+  }
+
+}

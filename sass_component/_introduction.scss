@@ -141,6 +141,8 @@
         width: 70%;
         background-color: cornflowerblue;
         border-style: hidden;
+        font-weight: 900;
+        font-size: 20px;
       }
     }
 
@@ -164,6 +166,7 @@
         border-width: medium;
         border-color: $primary;
         padding: 5px;
+        padding-left: 20px;
 
         @include device(phone){
           width: 80%;
@@ -175,7 +178,7 @@
         }
 
         @include device(desktop){
-          width: 80%;
+          width: 500px
         }
 
       }
@@ -184,8 +187,7 @@
         color: $terminal-text-color;
         font-family: "Courier";
         font-size: 20px;
-        padding: 0.1em;
-        @include device(phone){
+         @include device(phone){
           font-size: 13px;
         }
       }
