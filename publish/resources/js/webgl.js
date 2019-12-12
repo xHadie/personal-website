@@ -18,8 +18,17 @@ var canvasSize = {width: 0, height:0}
 var distance = -9.0
 
 
+function resizeCanvas() {
+    const canvas = document.querySelector('#glCanvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+}
+
 function initWebGl() {
     const canvas = document.querySelector('#glCanvas');
+    console.log("Style width:")
+    resizeCanvas();
     const skillGrid = document.querySelector('#skillGrid');
     skillGrid.addEventListener('mousemove', function(evt) {
         var rect = skillGrid.getBoundingClientRect();
@@ -27,7 +36,6 @@ function initWebGl() {
         canvasSize.height = rect.height;
         mousePos.x = evt.clientX - rect.left;
         mousePos.y = evt.clientY - rect.top;
-        console.log(rect)
     }, false);
 
     const gl = canvas.getContext('webgl');
