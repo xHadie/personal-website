@@ -1,23 +1,36 @@
-const words = [" 'Coffee.'", " 'Winter.'"," 'Science.'"," 'Playing Guitar.'"," 'Sleeping.'"];
-let i = 0;
-let timer;
+var words = ["too much coffee","sleeping is joy", "winter is cozy","science fanatic"];
+var i = 0;
+var timer;
+
+
+function getRandomNumberBetween(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function getWordArray() {
+    var word =   " '" + words[i]+ ".'";
+    return word.split("");
+}
 
 function typingEffect() {
-    let word = words[i].split("");
+    var word = getWordArray();
     var loopTyping = function() {
         if (word.length > 0) {
+
             document.getElementById('word').innerHTML += word.shift();
         } else {
-            deletingEffect();
+            setTimeout( deletingEffect, 1000);
+
             return false;
         };
-        timer = setTimeout(loopTyping, 300);
+        timer = setTimeout(loopTyping, getRandomNumberBetween(40,150));
     };
+
     loopTyping();
 };
 
 function deletingEffect() {
-    let word = words[i].split("");
+    var word = getWordArray();
     var loopDeleting = function() {
         if (word.length > 0) {
             word.pop();

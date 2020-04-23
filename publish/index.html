@@ -2,30 +2,47 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="./resources/css/style.css">
-		<link rel="stylesheet" type="text/css" href="./resources/css/jquery.pagepiling.css" />
 		<script type="text/javascript" src="./resources/js/jquery-3.4.1.min.js"></script>
-		<script type="text/javascript" src="./resources/js/jquery.pagepiling.js"></script>
+
+
+		<link rel="stylesheet" type="text/css" href="./resources/css/fullpage.css" />
+		<link rel="stylesheet" type="text/css" href="./resources/css/style.css" />
+
+		<script type="text/javascript" src="./resources/js/fullpage.min.js"></script>
+		<script type="text/javascript" src="./resources/js/fullpage.extensions.min.js"></script>
+
 		<script type="text/javascript" src="./resources/js/typing.js"></script>
 		<script type="text/javascript" src="./resources/js/gl-matrix.js"></script>
 		<script type="text/javascript" src="./resources/js/webgl.js"></script>
 		<script type="text/javascript" src="./resources/js/init.js"></script>
+		<script type="text/javascript" src="./resources/js/collaborate.js"></script>
+
+
+
+
 
 		<link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<div id="pagepiling">
+		<div id="fullpage">
 			<div class="section sec-introduction">
-				<div class="intro-skewed"></div>
+				<section class="intro-skewed">
+					<svg preserveAspectRatio="none" id="dia-curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1399.5 700.87"><defs><style>.cls-1{fill:#fff;}</style></defs><title>bg</title><path class="cls-1" d="M0,700.87S44.39,579,340.71,530,1349.5,254.87,1399.5,0V700.87H0Z"/></svg>
+				</section>
+
 				<div class="area-content">
 					<div class="intro-name">
-						<h2 style="color: red;">THIS PAGE IS WORK IN PROGRESS! :)<br> -------------------</h2>
-						<h1>Hi, my name is <span class="operator">Hassan Matout!<span></span></h1>
+						<p style="color: red;">SITE STILL UNDER CONSTRUCTION!</p>
+						<h1 style="color: black">Hi, my name is <br><span class="operator">Hassan Matout!</span></h1>
 						<br>
+
 						<div class="intro-subTitle">
-							<h2>Software Engineer</h2>
+							<h2>Full-Stack-Web Developer</h2>
 							<h2> <span class="operator">&&</span></h2>
-							<h2>Open Source Enthusiast</h2>
+							<h2>Game Dev!</h2>
+							<h2> <span class="operator">&&</span></h2>
+							<h2>Always looking for cool projects! :)</h2>
+
 						</div>
 					</div>
 					<div class="intro-short">
@@ -36,7 +53,7 @@
 					</div>
 					<div class="intro-like">
 						<div class="typing-block">
-							<p class="header-sub-title left">things_i_like =&nbsp;</p>
+							<p class="header-sub-title left">me_in_a_nutshell =&nbsp;</p>
 								<p class="header-sub-title left" id="word"></p>
 							<p class="header-sub-title blink left">|</p>
 						</div>
@@ -44,7 +61,7 @@
 
 
 					<div class="intro-hire">
-						<button >HIRE ME</button>
+						<button onclick="location.href='mailto:contact@hassanmatout.com';" class="cta-button">GET IN TOUCH!</button>
 					</div>
 				</div>
 			</div>
@@ -54,11 +71,10 @@
 				<div id="skillGrid" class="skill-grid">
 
 					<div class="skill-top-left skill-box">
-						<h3 class="skillTitle">Frameworks & Software</h3>
+						<h3 class="skillTitle">Data-(Science)</h3>
 						<span class="operator">{</span>
 						<div class="skilllist">
-							<p class="skill">Keras, PsychoPy</p>
-							<p class="skill">JavaFX</p>
+							<p class="skill">pandas, Keras, PsychoPy</p>
 						</div>
 						<span class="operator">}</span>
 					</div>
@@ -66,10 +82,7 @@
 						<h3 class="skillTitle">Languages</h3>
 						<span class="operator">{</span>
 						<div class="skilllist">
-							<p class="skill">Java</p>
-							<p class="skill">Python</p>
-							<p class="skill">PHP</p>
-							<p class="skill">(MySQL, MongoDB)</p>
+							<p class="skill">Java, Python, PHP</p>
 						</div>
 						<span class="operator">}</span>
 					</div>
@@ -77,10 +90,7 @@
 						<h3 class="skillTitle">Game</h3>
 						<span class="operator">{</span>
 						<div class="skilllist">
-							<p class="skill">libGDX</p>
-							<p class="skill">lwjgl</p>
-							<p class="skill">Unity 3D</p>
-							<p class="skill">OpenGL</p>
+							<p class="skill">libGDX, lwjgl, Godot, OpenGL</p>
 						</div>
 						<span class="operator">}</span>
 					</div>
@@ -88,12 +98,11 @@
 						<h3 class="skillTitle">Web</h3>
 						<span class="operator">{</span>
 						<div class="skilllist">
-							<p class="skill">HTML && CSS && JS</p>
+							<p class="skill">HTML, SASS/CSS, JS</p>
 							<p class="skill">Laravel</p>
-							<p class="skill">Angular && Vue</p>
-							<p class="skill">Java EE && Spring</p>
-							<p class="skill">Prestashop && Wordpress</p>
-
+							<p class="skill">Angular2, Vue</p>
+							<p class="skill">JavaEE, Spring</p>
+							<p class="skill">Wordpress</p>
 						</div>
 						<span class="operator">}</span>
 					</div>
@@ -103,13 +112,29 @@
 
 			</div>
 			<div class="section sec-portfolio">
-				<div class="icon-area">
-					<img class="logo" src="./resources/image/GitHub-Mark/PNG/GitHub-Mark-Light-120px-plus.png" alt="GitHub">
-					<img class="logo" src="./resources/image/HadKyun.png" alt="HadKyunDev">
-				</div>
-
-
+				<section style="size:14px; padding: 50px; color: white;" class="fsdfsdf">
+					I am always looking for interesting projects or people.
+					If you would like to get in touch for collaboration or simply for a chat,
+					please feel free to get in contact with me <span style="color:cornflowerblue;">contact@hassanmatout.com</span>
+					<br>
+					<br>
+					This page is still under construction and I use the little time on my hand to make it :)
+					<br>
+					<br>
+					<br>
+					<br>
+					Anyway, thanks for checking out my page and have a great day!
+				</section>
+				<section class="footer-bg">
+					<svg style="transform: rotate(0deg);" preserveAspectRatio="none" id="dia-curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1399.5 700.87"><defs><style>.cls-1{fill:#fff;}</style></defs><title>bg</title><path class="cls-1" d="M0,700.87S44.39,579,340.71,530,1349.5,254.87,1399.5,0V700.87H0Z"/></svg>
+				</section>
+				<footer class="footer-txt">
+					<small>&copy; Copyright 2020, Hassan Matout</small>
+				</footer>
 			</div>
 		</div>
+
+
+
 	</body>
 </html>

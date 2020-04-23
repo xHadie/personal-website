@@ -301,9 +301,9 @@ function loadTexture(gl, url) {
             // wrapping to clamp to edge
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
         }
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+
 
     };
     image.src = url;
@@ -319,7 +319,7 @@ function isPowerOf2(value) {
 // Draw the scene.
 //
 function drawScene(gl, programInfo, buffers, texture, deltaTime) {
-    gl.clearColor(58.0/255.0, 81.0/255.0, 153.0/255.0, 1.0);  // Clear to black, fully opaque
+    gl.clearColor(47.0/255.0, 46.0/255.0, 51.0/255.0, 1.0);  // Clear to black, fully opaque
     gl.clearDepth(1.0);                 // Clear everything
     gl.enable(gl.DEPTH_TEST);           // Enable depth testing
     gl.depthFunc(gl.LEQUAL);            // Near things obscure far things

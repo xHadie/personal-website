@@ -1,6 +1,21 @@
+.footer-bg{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
 
+.footer-txt{
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  font-weight: 700;
+  color: $primary;
+}
 
 .sec-portfolio{
+  background-color: $black;
+
+
 
   .icon-area{
     display:grid;

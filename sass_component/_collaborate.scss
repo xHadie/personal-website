@@ -1,0 +1,98 @@
+
+
+
+.sec-collaborate {
+  background-color: rgba(0, 0, 0, 0.74);
+
+  #background-images{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .bg-image{
+    position: absolute;
+    background-size: cover;
+    filter: grayscale(70%);
+    height: 100vh;
+    width: 100%;
+    display: none;
+  }
+
+  #collaborate-content{
+
+    ul {
+      @include device(phone){
+        grid-auto-flow: row;
+
+      }
+
+      @include device(tablet-portrait){
+        grid-auto-flow: column;
+
+      }
+
+      @include device(desktop) {
+        grid-auto-flow: column;
+      }
+
+      display: grid;
+      align-content: center;
+      font-size: 30px;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      height: 100%;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+      background-color: #111;
+    }
+
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-areas: "topics topics topics" "topic-area topic-area topic-area";
+
+    .topic-area {
+      grid-area: topic-area;
+      .interest{
+        position:absolute;
+        display: none;
+        width: 100%;
+        height: 100%;
+
+
+      }
+
+      .music{
+
+      }
+
+      .electro{
+      }
+    }
+
+    .topics-list {
+      grid-area: topics;
+      height: max-content;
+    }
+  }
+
+}

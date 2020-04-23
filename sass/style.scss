@@ -4,17 +4,37 @@
 @import '../sass_component/introduction';
 @import '../sass_component/skills';
 @import '../sass_component/portfolio';
+@import '../sass_component/collaborate';
 
 
 
 
 body{
-    background-color: pink;
+    background-color: $black;
     font-family: "Varela", Times, serif;
 
 }
 
+.cta-button{
+  background: none;
+  color: white;
+  padding: 10px;
+  width: 70%;
+  background-color: cornflowerblue;
+  border-style: hidden;
+  font-weight: 900;
+  font-size: 20px;
+  transition: 0.3s;
+}
 
+.cta-button:hover{
+  color: cornflowerblue;
+  background-color: white;
+
+}
+
+.section{
+}
 
 .left{
     float: left;
@@ -24,11 +44,6 @@ body{
     color: $primary;
 }
 
-
-
-.sec-portfolio{
-    background-color: $black;
-}
 
 ul{
     display: none;
