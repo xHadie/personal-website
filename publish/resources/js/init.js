@@ -8,7 +8,7 @@ $(document).ready(function() {
         //Navigation
         menu: null,
         lockAnchors: false,
-        anchors:['firstPage', 'secondPage'],
+        anchors:[],
         navigation: false,
         showActiveTooltip: false,
         slidesNavigation: false,
